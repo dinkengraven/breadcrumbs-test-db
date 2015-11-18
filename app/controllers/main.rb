@@ -5,7 +5,7 @@ get "/users.json" do
 end
 
 post "/users" do
-  user = User.new(username: params[:username], email: params[:email])
+  user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
   if user.save
     content_type :json
     return {message: "success!"}.to_json
