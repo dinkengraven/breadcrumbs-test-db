@@ -25,3 +25,9 @@ post "/breadcrumbs" do
     content_type :json
     return {errors: errors}.to_json
 end
+
+get "/breadcrumbs/:id" do
+  breadcrumb = Breadcrumb.find(params[:id])
+  content_type :json
+  return {:breadcrumb => breadcrumb}.to_json
+end
