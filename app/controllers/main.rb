@@ -24,4 +24,5 @@ post "/breadcrumbs" do
     errors = breadcrumb.errors.full_messages
     content_type :json
     return {errors: errors}.to_json
+  end
 end
