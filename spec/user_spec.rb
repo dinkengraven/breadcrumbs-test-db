@@ -69,17 +69,18 @@ describe User do
 
     it "can create breadcrumbs" do
       breadcrumb = Breadcrumb.create(body: "Hello!", found: false)
+
       user_1.created_breadcrumbs << breadcrumb
-      expect(user_1.created_breadcrumbs.first).to be_a(Breadcrumb)
+
+      expect(user_1.created_breadcrumbs.first).to eq(breadcrumb)
     end
 
     it "has received breadcrumbs" do
       breadcrumb = Breadcrumb.create(body: "Hey Geraldine", found: false)
 
-      user_1.created_breadcrumbs << breadcrumb
       user_2.received_breadcrumbs << breadcrumb
-      
-      expect(user_2.received_breadcrumbs.first).to be_a(Breadcrumb)
+
+      expect(user_2.received_breadcrumbs.first).to eq(breadcrumb)
     end
   end
 end
