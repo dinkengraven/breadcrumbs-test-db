@@ -8,9 +8,9 @@ post "/users" do
   user = User.new(username: params[:username], email: params[:email])
   if user.save
     content_type :json
-    return {message: "success!"}
+    return {message: "success!"}.to_json
   else
     content_type :json
-    return {error: "user did not save"}
+    return {error: "user did not save"}.to_json
   end
 end
