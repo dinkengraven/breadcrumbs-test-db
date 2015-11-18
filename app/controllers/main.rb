@@ -16,5 +16,12 @@ post "/users" do
 end
 
 post "/breadcrumbs" do
-  breadcrumb = Breadcrumb.new()
+  breadcrumb = Breadcrumb.new(params[:breadcrumb])
+  if breadcrumb.save
+    content_type :json
+    return {message: "successful breadCrumb creation"}.to_json
+  else
+    errors = breadcrumb.errors.full_messages
+    content_type :json
+    return {errors: errors}.to_json
 end
