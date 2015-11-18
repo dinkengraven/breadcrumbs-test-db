@@ -15,6 +15,17 @@ post "/users" do
   end
 end
 
+post "/login" do
+  user = User.find_by(email: params[:email])
+  if user && user.authenticate(params[:password])
+    content_type :json
+    return {message: "login successful"}.to_json
+  else
+    content_type :json
+    return {error: "everything is terrible"}.to_json
+  end
+end
+
 post "/breadcrumbs" do
   breadcrumb = Breadcrumb.new(params[:breadcrumb])
   if breadcrumb.save
