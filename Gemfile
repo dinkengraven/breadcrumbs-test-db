@@ -19,6 +19,9 @@ gem 'shotgun'
 gem 'json'
 gem 'unicorn'
 
+gem 'paperclip'
+gem 'aws-sdk'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
