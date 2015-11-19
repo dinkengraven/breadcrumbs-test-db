@@ -19,7 +19,7 @@ post "/login" do
   user = User.find_by(email: params[:email])
   if user && user.authenticate(params[:password])
     content_type :json
-    return {message: "login successful"}.to_json
+    return {user: user}.to_json
   else
     content_type :json
     return {error: "everything is terrible"}.to_json
